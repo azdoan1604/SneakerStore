@@ -1,0 +1,215 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding:100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+header .logo{
+    position: relative;
+    color:#ff5e8e;
+    display: inline-block;
+    font-size:2em;
+    text-decoration: none;
+    font-weight: 800;
+    animation: slide_left 0.2s linear forwards;
+    animation-delay:0.2s;
+    opacity: 0;
+}
+@keyframes slide_left {
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+header ul{
+    position: relative;
+    display: flex;
+}
+header ul li{
+    list-style: none;
+}
+header ul li a{
+    display: inline-block;
+    color: #0169b2;
+    font-weight: 600;
+    font-size:1.1em;
+    margin-left:10px;
+    display: inline-block;
+    padding: 8px 18px;
+    text-decoration: none;
+    user-select: none;
+    animation: slide_top 0.2s linear forwards;
+    animation-delay: calc(0.2s *var(--i));
+    opacity: 0;
+}
+@keyframes slide_top{
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+header ul li a.active,
+header ul li a:hover
+{
+    background-color: #0169b2;
+    color:#fff;
+    border-radius: 30px;
+}
+.content{
+    position: relative;
+}
+.content .textbox{
+    position: relative;
+    max-width: 500px;
+    padding: 40px 100px;
+}
+.content .textbox h2{
+    text-transform: uppercase;
+    color: #0169b2;
+    font-size: 3.5em;
+    font-weight: 700;
+    animation: slide_right 0.2s linear forwards;
+    animation-delay:1s;
+    opacity: 0;
+}
+@keyframes slide_right {
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.content .textbox p{
+    font-size: 1.2em;
+    color: #333;
+    animation: slide_left 0.2s linear forwards;
+    animation-delay:1.5s;
+    opacity: 0;
+}
+.content .textbox a{
+    display: inline-block;
+    margin-top:20px;
+    padding:15px 30px;
+    background: #ff5e8e;
+    color:#fff;
+    font-size: 1.2em;
+    border-radius:40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    animation: slide_top 0.2s linear forwards;
+    animation-delay:1.75s;
+    opacity: 0;
+}
+.banner{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 700px;
+    animation: fade_in 1s linear forwards;
+    animation-delay:1.75s;
+    opacity: 0;
+}
+@keyframes fade_in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@media (max-width: 991px) {
+    section{
+        padding:150px 20px;
+    }
+    header{
+        padding:20px;
+    }
+    .navigation{
+        display: none;
+    }
+    .navigation .active{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color:#fff;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+    }
+    header ul li{
+        margin:10px 0;
+    }
+    header ul li a{
+        margin-left:0;
+        font-size:1.5em;
+    }
+    .toggle{
+        position:fixed;
+        top:20px;
+        right:20px;
+        width:40px;
+        height:40px;
+        /* background: #0169b2 url("download.png");
+        background-size:30px;
+        background-repeat: no-repeat;
+        background-position: center; */
+        background: lightblue url("download.png") no-repeat fixed center;
+        cursor: pointer;
+        z-index:1000;
+    }
+    .toggle .active{
+        background: #0169b2 url("preview.png");
+        background-size:25px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .banner{
+        max-width: 400px;
+    }
+    .content .textbox h2{
+        font-size:2.5em;
+    }
+    .content .textbox p{
+        font-size:1em;
+    }
+}
+@media (max-width: 690px){
+    .banner{
+        opacity: 0.4;
+    }
+}
